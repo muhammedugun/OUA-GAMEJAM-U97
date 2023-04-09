@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 72.47757, g: 59.83908, b: 63.883423, a: 1}
+  m_IndirectSpecularColor: {r: 73.351074, g: 58.801544, b: 58.967773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -188,7 +188,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 64.11336
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -625,6 +625,18 @@ MonoBehaviour:
   maxMana: 100
   minMana: 0
   currentMana: 0
+--- !u!114 &1153398449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153398433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27df3f94d648c642a953bf67432e1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1207660865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,6 +788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Value
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742262104791484930, guid: d619b0fa25eeaed41ae11d3f9c616d89,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1098.6
       objectReference: {fileID: 0}
     - target: {fileID: 4557319167677777709, guid: d619b0fa25eeaed41ae11d3f9c616d89,
         type: 3}
