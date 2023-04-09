@@ -1972,6 +1972,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1153398444, guid: 5ad06086dda6373479dbba85d5bb5da6, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1078331988}
+    - target: {fileID: 1153398444, guid: 5ad06086dda6373479dbba85d5bb5da6, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1903101895}
     - target: {fileID: 1153398454, guid: 5ad06086dda6373479dbba85d5bb5da6, type: 3}
       propertyPath: audioClip.Array.size
       value: 8
@@ -2078,6 +2086,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1989432568, guid: 672536946099e32448c6827d4df9f80d, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1274885596}
+    - target: {fileID: 1989432568, guid: 672536946099e32448c6827d4df9f80d, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 35658273}
     - target: {fileID: 2373402755880877131, guid: 672536946099e32448c6827d4df9f80d,
         type: 3}
       propertyPath: m_RootOrder
