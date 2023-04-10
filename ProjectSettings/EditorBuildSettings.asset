@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GAMEJAM.unity
     guid: 0dd54d91dfd49e34b8d04169b954976f
+  - enabled: 1
+    path: Assets/GAME.unity
+    guid: 0def767d553f14642a38417d40609a14
+  - enabled: 1
+    path: Assets/RestartMenu 1.unity
+    guid: ef4e1f227027dc04aa96be543601e2aa
+  - enabled: 1
+    path: Assets/VictoryMenu 1.unity
+    guid: d7f06e854d0d9e44c9af954d1bfb4326
   m_configObjects: {}

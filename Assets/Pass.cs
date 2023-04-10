@@ -14,7 +14,7 @@ public class Pass : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene("GAMEJAM"); // Sahneyi yükle
+            SceneManager.LoadScene("GAME"); // Sahneyi yükle
         }
     }
 }

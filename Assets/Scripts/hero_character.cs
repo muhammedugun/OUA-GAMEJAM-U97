@@ -30,8 +30,9 @@ public class hero_character : MonoBehaviour
 
     }
 
-    public void ChangeHealth(int health)
+    public IEnumerator ChangeHealth(int health)
     {
+        yield return new WaitForSeconds(1.3f);
         currentHealth += health;
         currentHealth = Max(minHealth, currentHealth);
         currentHealth = Min(maxHealth, currentHealth);

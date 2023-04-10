@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -28,10 +29,10 @@ public class EnemyAttack : MonoBehaviour
     }
     public void AttackJump()
     {
-        if (turn && time+4f<=Time.time && enemy_character.currentMana > 0)
+        if (turn && time+3f<=Time.time && enemy_character.currentMana > 0)
         {
-            enemy_character.ChangeMana(-50);
-            hero_character.ChangeHealth(-30);
+            enemy_character.ChangeMana(-80);
+            StartCoroutine(hero_character.ChangeHealth(-40)); 
             turn = false;
             heroAttack.time = Time.time;
             heroAttack.impactTime = Time.time;
@@ -43,10 +44,10 @@ public class EnemyAttack : MonoBehaviour
     }
     public void Attack()
     {
-        if (turn && time + 4f <= Time.time && enemy_character.currentMana > 0)
+        if (turn && time + 3f <= Time.time && enemy_character.currentMana > 0)
         {
-            enemy_character.ChangeMana(-30);
-            hero_character.ChangeHealth(-20);
+            enemy_character.ChangeMana(-40);
+            StartCoroutine(hero_character.ChangeHealth(-20));
             turn = false;
             heroAttack.time = Time.time;
             heroAttack.impactTime = Time.time;
@@ -59,10 +60,10 @@ public class EnemyAttack : MonoBehaviour
     }
     public void Kick()
     {
-        if (turn && time + 4f <= Time.time && enemy_character.currentMana > 0)
+        if (turn && time + 3f <= Time.time && enemy_character.currentMana > 0)
         {
             enemy_character.ChangeMana(-10);
-            hero_character.ChangeHealth(-10);
+            StartCoroutine(hero_character.ChangeHealth(-10));
             turn = false;
             heroAttack.time = Time.time;
             heroAttack.impactTime = Time.time;
@@ -128,16 +129,28 @@ public class EnemyAttack : MonoBehaviour
             if(enemy_character.currentHealth==0)
             {
                 heroAnimator.SetTrigger("isDeathBody");
+                StartCoroutine(VictoryMenu());
             }
             else
             {
                 heroAnimator.SetTrigger("isImpactLow");
                 
-                
+
             }
             gameObject.transform.position = new Vector3(0, 0, 2.9f);
             isImpact = false;
         }
 
+    }
+
+  
+
+    private IEnumerator VictoryMenu()
+    {
+        
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene("VictoryMenu 1");
+
+       
     }
 }

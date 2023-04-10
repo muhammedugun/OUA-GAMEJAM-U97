@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
 public class HeroAttack : MonoBehaviour
@@ -13,6 +14,7 @@ public class HeroAttack : MonoBehaviour
     public float impactTime;
     public bool isImpact;
     public float time;
+    bool isStart = true;
     private void Start()
     {
         time = Time.time;
@@ -23,10 +25,23 @@ public class HeroAttack : MonoBehaviour
     }
     public void AttackJump()
     {
-        if (turn && time + 4f <= Time.time && hero_character.currentMana>0)
+        if(isStart)
         {
-            hero_character.ChangeMana(-50);
-            enemy_character.ChangeHealth(-30);
+            hero_character.ChangeMana(-80);
+            StartCoroutine(enemy_character.ChangeHealth(-40));
+            turn = false;
+            enemyAttack.time = Time.time;
+            enemyAttack.isImpact = true;
+            enemyAttack.turn = true;
+            heroAnimator.SetTrigger("isAttackJump");
+            time = Time.time;
+            enemyAttack.impactTime = Time.time;
+            isStart = false;
+        }
+        else if (turn && time + 3f <= Time.time && hero_character.currentMana>0)
+        {
+            hero_character.ChangeMana(-80);
+            StartCoroutine(enemy_character.ChangeHealth(-40));
             turn = false;
             enemyAttack.time = Time.time;
             enemyAttack.isImpact = true;
@@ -40,10 +55,23 @@ public class HeroAttack : MonoBehaviour
     }
     public void Attack()
     {
-        if (turn && time + 4f <= Time.time && hero_character.currentMana > 0)
+        if (isStart)
         {
-            hero_character.ChangeMana(-30);
-            enemy_character.ChangeHealth(-20);
+            hero_character.ChangeMana(-40);
+            StartCoroutine(enemy_character.ChangeHealth(-20));
+            turn = false;
+            enemyAttack.time = Time.time;
+            enemyAttack.impactTime = Time.time;
+            enemyAttack.isImpact = true;
+            enemyAttack.turn = true;
+            Run();
+            heroAnimator.SetTrigger("isAttack");
+            isStart = false;
+        }
+        else if (turn && time + 3f <= Time.time && hero_character.currentMana > 0)
+        {
+            hero_character.ChangeMana(-40);
+            StartCoroutine(enemy_character.ChangeHealth(-20));
             turn = false;
             enemyAttack.time = Time.time;
             enemyAttack.impactTime = Time.time;
@@ -56,10 +84,24 @@ public class HeroAttack : MonoBehaviour
     }
     public void Kick()
     {
-        if (turn && time + 4f <= Time.time && hero_character.currentMana > 0)
+        if (isStart)
         {
             hero_character.ChangeMana(-10);
-            enemy_character.ChangeHealth(-10);
+            StartCoroutine(enemy_character.ChangeHealth(-10));
+            turn = false;
+            enemyAttack.time = Time.time;
+            enemyAttack.impactTime = Time.time;
+            enemyAttack.isImpact = true;
+            enemyAttack.turn = true;
+            Run();
+            heroAnimator.SetTrigger("isKick");
+            isStart = false;
+        }
+
+        else if (turn && time + 3f <= Time.time && hero_character.currentMana > 0)
+        {
+            hero_character.ChangeMana(-10);
+            StartCoroutine(enemy_character.ChangeHealth(-10));
             turn = false;
             enemyAttack.time = Time.time;
             enemyAttack.impactTime = Time.time;
@@ -94,11 +136,12 @@ public class HeroAttack : MonoBehaviour
             if (hero_character.currentHealth == 0)
             {
                 heroAnimator.SetTrigger("isDeathBody");
+                StartCoroutine(RestartMenu());
             }
             else
             {
                 heroAnimator.SetTrigger("isImpactLow");
-                
+
                 
             }
             gameObject.transform.position = new Vector3(0, 0, -2.9f);
@@ -109,6 +152,14 @@ public class HeroAttack : MonoBehaviour
 
     }
 
-   
+
+    private IEnumerator RestartMenu()
+    {
+        
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene("RestartMenu 1");
+         
+    }
+
 
 }
